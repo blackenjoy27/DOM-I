@@ -46,6 +46,18 @@ for(let i = 0; i<6;){
   item.textContent = siteContent["nav"][`nav-item-${++i}`];
 }
 
+let a1 = document.createElement("a");
+a1.setAttribute("href","#");
+a1.textContent = "Location"
+document.querySelector("nav").appendChild(a1);
+
+let a2 = document.createElement("a");
+a2.setAttribute("href","#");
+a2.textContent = "Apply";
+document.querySelector("nav").prepend(a2);
+
+document.querySelectorAll("a").forEach(link=>link.style.color="green");
+
 {
   let section  = document.querySelector(".cta");
   
@@ -55,6 +67,55 @@ for(let i = 0; i<6;){
   let button = section.querySelector("button");
   button.textContent = siteContent["cta"]["button"];
   
-  section.querySelector("img").setAttribute("src",siteContent["cta"]["img-src"]);
+  section.querySelector("#cta-img").setAttribute("src",siteContent["cta"]["img-src"]);
 }
+
+{
+  let section = document.querySelector(".main-content");
+  section.querySelector("#middle-img").setAttribute("src",siteContent["main-content"]["middle-img-src"]);
+  for(let i =0;i<5;i++){
+    switch(i){
+      case 0:
+        setContent(i,"features-h4","features-content",section);
+        break;
+      case 1:
+        setContent(i,"about-h4","about-content",section);
+        break;
+      case 2:
+        setContent(i,"services-h4","services-content",section);
+        break;
+      case 3:
+        setContent(i,"product-h4","product-content",section);
+        break;
+      case 4:
+        setContent(i,"vision-h4","vision-content",section);
+        break;
+      default: {
+        console.log(`Something is wrong`);
+      }  
+    }
+  }
+  function setContent(index,key1,key2,section){
+    let div = section.querySelectorAll(".text-content")[index];
+    let h4 = div.querySelector("h4");
+    h4.textContent = siteContent["main-content"][key1];
+    let p = div.querySelector("p");
+    p.textContent = siteContent["main-content"][key2];
+  }
+}
+
+{
+  let section = document.querySelector(".contact");
+  let h4 = section.querySelector("h4");
+  h4.textContent = siteContent["contact"]["contact-h4"];
+  let address = section.querySelectorAll("p")[0];
+  address.textContent = siteContent["contact"]["address"];
+  let phone = section.querySelectorAll("p")[1];
+  phone.textContent = siteContent["contact"]["phone"];
+  let email = section.querySelectorAll("p")[2];
+  email.textContent = siteContent["contact"]["email"];
+}
+
+let footer = document.querySelector("footer").querySelector("p");
+footer.textContent = siteContent["footer"]["copyright"];
 
