@@ -45,3 +45,16 @@ for(let i = 0; i<6;){
   let item = document.querySelectorAll('a')[i];
   item.textContent = siteContent["nav"][`nav-item-${++i}`];
 }
+
+{
+  let section  = document.querySelector(".cta");
+  
+  let heading = section.querySelector("h1");
+  heading.innerHTML = siteContent["cta"]["h1"].replaceAll(" ","<br>");
+
+  let button = section.querySelector("button");
+  button.textContent = siteContent["cta"]["button"];
+  
+  section.querySelector("img").setAttribute("src",siteContent["cta"]["img-src"]);
+}
+
