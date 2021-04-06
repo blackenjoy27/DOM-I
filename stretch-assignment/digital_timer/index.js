@@ -60,7 +60,7 @@ let start = false;
 let button2 = document.createElement("button");
 button2.textContent = "Start";
 button2.addEventListener("click",function(){
-    if(!start){
+    if(!start && secondTens!==1){
         countToTen();
         pause = false;
         start = true;
@@ -79,9 +79,9 @@ button3.addEventListener("click",function(){
 })
 
 
-document.querySelector("body").appendChild(button1);
-document.querySelector("body").appendChild(button2);
-document.querySelector("body").appendChild(button3);
+document.querySelector(".menu").appendChild(button1);
+document.querySelector(".menu").appendChild(button2);
+document.querySelector(".menu").appendChild(button3);
 
 
 
